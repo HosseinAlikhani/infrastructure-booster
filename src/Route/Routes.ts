@@ -5,8 +5,8 @@ export default class Routes
 {
     private routes: Array<GroupRoute|Route> = [];
 
-    public setRoutes(route: GroupRoute|Route){
+    public setRoute(route: GroupRoute|Route){
         this.routes.push(route);
     }
-    
+
 }
