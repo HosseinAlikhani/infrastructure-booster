@@ -19,21 +19,37 @@ export class Route
         this.action = action;
     }
 
+    /**
+     * get method
+     * @returns 
+     */
     public getMethod(): MethodEnum
     {
         return this.method;
     }
     
+    /**
+     * get route
+     * @returns 
+     */
     public getRoute(): String
     {
         return this.route;
     }
 
+    /**
+     * get middleware
+     * @returns 
+     */
     public getMiddleware(): Array<String|null>
     {
         return this.middleware;
     }
 
+    /**
+     * get action
+     * @returns 
+     */
     public getAction(): Function
     {
         return this.action;
