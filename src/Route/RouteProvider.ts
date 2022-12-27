@@ -1,6 +1,7 @@
 import { GroupRoute } from "./GroupRoute";
 import { Route } from "./Route";
 import { MethodEnum, RoutesInterface } from "./RouteInterface";
+import { RouteMethod } from "./RouteMethod";
 
 export class RouteProvider
     implements RoutesInterface
@@ -19,60 +20,8 @@ export class RouteProvider
         return this.prefix;
     }
 
-    protected setRoutes(route: GroupRoute|Route){
+    public setRoutes(route: GroupRoute|Route){
         this.routes.push(route);
-    }
-
-    protected get(route, middleware, action)
-    {
-        let routeObject = {
-            method: MethodEnum.get,
-            route,
-            middleware,
-            action
-        };
-        this.setRoutes(
-            this.makeRoute(routeObject)
-        );
-    }
-
-    protected post(route, middleware, action)
-    {
-        let routeObject = {
-            method: MethodEnum.post,
-            route,
-            middleware,
-            action
-        };
-        this.setRoutes(
-            this.makeRoute(routeObject)
-        );
-    }
-
-    protected patch(route, middleware, action)
-    {
-        let routeObject = {
-            method: MethodEnum.patch,
-            route,
-            middleware,
-            action
-        };
-        this.setRoutes(
-            this.makeRoute(routeObject)
-        );
-    }
-
-    protected delete(route, middleware, action)
-    {
-        let routeObject = {
-            method: MethodEnum.delete,
-            route,
-            middleware,
-            action
-        };
-        this.setRoutes(
-            this.makeRoute(routeObject)
-        );
     }
 
     private makeRoute(route)
@@ -85,9 +34,4 @@ export class RouteProvider
         );
     }
 
-    protected group(route: String, middleware: Array<String|null>, callback){
-        this.setRoutes(
-            new GroupRoute(route, middleware, callback)
-        );
-    }
 }
