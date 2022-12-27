@@ -17,16 +17,28 @@ export class GroupRoute
         this.callback(new Routes());
     }
 
+    /**
+     * get prefix
+     * @returns 
+     */
     getPrefix(): String
     {
         return this.prefix;
     }
 
+    /**
+     * get middlewares
+     * @returns 
+     */
     getMiddleware(): Array<String|null>
     {
         return this.middleware;
     }
 
+    /**
+     * get callback
+     * @returns 
+     */
     getCallback(): Function
     {
         return this.callback;
