@@ -1,37 +1,23 @@
-import { RouteProvider } from "./RouteProvider";
-
 export class GroupRoute
-    extends RouteProvider
 {
-    private route: String;
+    private prefix: String;
     private middleware: Array<String|null>;
     private callback: Function;
 
     public constructor(
-        route: String,
+        prefix: String,
         middleware: Array<String|null>,
         callback: Function
     ){
-        super();
-        this.route = route;
+        this.prefix = prefix;
         this.middleware = middleware;
         this.callback = callback;
-        this.setPrefix(route);
         this.callback(this);
     }
 
-    private setPrefix(prefix: String)
+    getPrefix(): String
     {
-        this.prefix = prefix;
-    }
-
-    concatPrefix(groupRoute: GroupRoute){
-        this.setPrefix(`${groupRoute.getPrefix()}${this.getPrefix()}`);
-    }
-
-    getRoute(): String
-    {
-        return this.route;
+        return this.prefix;
     }
 
     getMiddleware(): Array<String|null>
