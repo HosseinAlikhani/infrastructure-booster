@@ -1,3 +1,5 @@
+import Routes from "./Routes";
+
 export class GroupRoute
 {
     private prefix: String;
@@ -12,7 +14,7 @@ export class GroupRoute
         this.prefix = prefix;
         this.middleware = middleware;
         this.callback = callback;
-        this.callback(this);
+        this.callback(new Routes());
     }
 
     getPrefix(): String
