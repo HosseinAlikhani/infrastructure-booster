@@ -1,7 +1,7 @@
 const { Route } = require("../../src/Route/Route");
 const { MethodEnum } = require("../../src/Route/RouteInterface");
 
-describe("test routes", function(){
+describe("test route", function(){
     it("create route class", function(){
         let data = {
             method: MethodEnum.get,
