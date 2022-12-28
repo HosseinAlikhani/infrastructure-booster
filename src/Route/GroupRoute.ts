@@ -5,6 +5,7 @@ export class GroupRoute
     private prefix: String;
     private middleware: Array<String|null>;
     private callback: Function;
+    private routes: Routes;
 
     public constructor(
         prefix: String,
@@ -14,7 +15,9 @@ export class GroupRoute
         this.prefix = prefix;
         this.middleware = middleware;
         this.callback = callback;
-        this.callback(new Routes());
+
+        this.routes = new Routes();
+        this.callback(this.routes);
     }
 
     /**
@@ -33,14 +36,5 @@ export class GroupRoute
     getMiddleware(): Array<String|null>
     {
         return this.middleware;
-    }
-
-    /**
-     * get callback
-     * @returns 
-     */
-    getCallback(): Function
-    {
-        return this.callback;
     }
 }
