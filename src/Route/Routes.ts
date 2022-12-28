@@ -4,7 +4,6 @@ import { Route } from "./Route";
 export default class Routes
 {
     private routes: Array<GroupRoute|Route> = [];
-    private routePrefix: String;
 
     /**
      * register route to routes property
@@ -34,14 +33,5 @@ export default class Routes
         this.route(
             new GroupRoute(prefix, middleware, callback)
         );
-    }
-
-    /**
-     * set route prefix
-     * @param prefix 
-     */
-    public prefix(prefix: String): void
-    {
-        this.routePrefix = prefix;
     }
 }
