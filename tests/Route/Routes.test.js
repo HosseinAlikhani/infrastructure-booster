@@ -5,14 +5,23 @@ let routeFaker = new RouteFaker();
 
 describe('test Routes', () => {
 
-    it('check route method with route instance without exception', () => {
-        let routes = new Routes();
+    it('check route/getRoute methods', () => {
+        let routes = new Routes(),
+            routeFakes = [];
+
         for(let i = 1; i <= 5; i++){
-            routes.route(routeFaker.route());
+            let fake = routeFaker.route();
+            routeFakes.push(fake);
+            routes.route(fake);
         }
 
         expect( routes.getRoutes().length ).toBe(5);
+        expect( routes.getRoutes() ).toEqual( routeFakes );
     });
 
-    
+    it('check group/getRoute methods', () => {
+        let routes = new Routes(),
+            routeFakes = [];
+        
+    });
 });
