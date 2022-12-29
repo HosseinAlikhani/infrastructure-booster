@@ -9,8 +9,10 @@ export default class Routes
      * register route to routes property
      * @param route 
      */
-    public route(route: GroupRoute|Route){
+    public route(route: GroupRoute|Route): GroupRoute|Route
+    {
         this.routes.push(route);
+        return route;
     }
 
     /**
@@ -28,10 +30,10 @@ export default class Routes
      * @param middleware 
      * @param callback 
      */
-    public group(prefix: String, middleware: any, callback: Function): void
+    public group(prefix: String, middleware: any, callback: Function): GroupRoute
     {
-        this.route(
-            new GroupRoute(prefix, middleware, callback)
-        );
+        let groupRoute = new GroupRoute(prefix, middleware, callback);
+        this.route( groupRoute );
+        return groupRoute;
     }
 }
