@@ -1,6 +1,5 @@
 import { Route } from "../../src/Route/Route";
 import { MethodEnum } from "../../src/Route/RouteInterface";
-import Routes from "../../src/Route/Routes";
 
 Array.prototype.random = function(){
     return this[Math.floor(Math.random()*this.length)];
@@ -30,9 +29,9 @@ export default class RouteFaker
     group(prefix = null, middleware = [], callback = null)
     {
         prefix = prefix ?? this.url();
-        callback = callback ?? function(routes){
+        callback = callback ? callback : (routes) => {
             for(let i = 1; i <= 3; i++){
-                Routes.route(this.route());
+                routes.route(this.route());
             }
         };
         return {
