@@ -1,8 +1,5 @@
 import { ApplicationInterface } from "./Contracts/ApplicationInterface";
 import { ServiceProviderInterface } from "./Contracts/ServiceProviderInterface";
-import { RoutesInterface } from "../Route/RouteInterface";
-import { GroupRoute } from "../Route/GroupRoute";
-import { Route } from "../Route/Route";
 import { AuthenticateMiddleware } from "../Middleware/AuthenticateMiddleware";
 
 export class ServiceProvider 
