@@ -37,4 +37,13 @@ export class GroupRoute
     {
         return this.middleware;
     }
+
+    /**
+     * get routes
+     * @returns
+     */
+    public getRoutes()
+    {
+        return this.routes.getRoutes();
+    }
 }
