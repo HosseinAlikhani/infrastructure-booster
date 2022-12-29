@@ -4,7 +4,5 @@ export interface ServiceProviderInterface
 {
     getApplicationSource();
     
-    registerRoutes(routes: RoutesInterface);
-    
     listen();
 }
