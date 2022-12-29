@@ -27,6 +27,21 @@ export default class RouteFaker
         );
     }
 
+    group(prefix = null, middleware = [], callback = null)
+    {
+        prefix = prefix ?? this.url();
+        callback = callback ?? function(routes){
+            for(let i = 1; i <= 3; i++){
+                Routes.route(this.route());
+            }
+        };
+        return {
+            prefix,
+            middleware,
+            callback
+        };
+    }
+
     /**
      * generate random http verb
      */
