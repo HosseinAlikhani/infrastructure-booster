@@ -10,9 +10,7 @@ describe('test Routes', () => {
             routeFakes = [];
 
         for(let i = 1; i <= 5; i++){
-            let fake = routeFaker.route();
-            routeFakes.push(fake);
-            routes.route(fake);
+            routeFakes.push( routes.route(routeFaker.route()) );
         }
 
         expect( routes.getRoutes().length ).toBe(5);
