@@ -10,9 +10,9 @@ export class ServiceProvider
 {
     private static instance: ServiceProviderInterface|null = null;
 
-    private application: ApplicationInterface;
+    protected application: ApplicationInterface;
 
-    private applicationSource;
+    protected applicationSource;
 
     middlewares: Object = {};
 
