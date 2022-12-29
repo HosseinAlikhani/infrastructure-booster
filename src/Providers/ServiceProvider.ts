@@ -98,57 +98,8 @@ export class ServiceProvider
             console.log('provider run on port 3000 ...');
         });
     }
-
-    /**
-     * register routes to service provider
-     * @param applicationRoutes 
-     */
-    public registerRoutes(applicationRoutes: RoutesInterface){
-        let routes = applicationRoutes.getRoutes();
-        routes.forEach(route => {
-            if ( route instanceof GroupRoute ) {
-                this.registerGroup(route);
-            } else {
-                this.registerRoute(route);
-            }
-        });
-    }
-
-    private registerGroup(groupRoute: GroupRoute){
-        let Router = this.applicationSource.Router(),
-            routes = groupRoute.getRoutes();
-        
-        if ( groupRoute.getMiddleware().length ) {
-            Router.use( this.makeMiddleware(groupRoute.getMiddleware()) );
-        }
-
-        routes.forEach((route: Route|GroupRoute) => {
-            if (route instanceof GroupRoute ) {
-                route.concatPrefix(groupRoute);
-                this.registerGroup(route);
-            }else{
-                this.registerRoute(route, Router);
-            }
-        });
-
-        this.application.use(groupRoute.getPrefix(), Router );
-    }
     
-    private registerRoute(route: Route, router = null){
-        let Router = router ?? this.application;
-        Router[route.getMethod()](
-            route.getRoute(),
-            this.makeMiddleware(route.getMiddleware()),
-            route.getAction()
-        );
-    }
 
-    private makeMiddleware(middlewares)
-    {
-        let sum: Array<Function> = [];
-        middlewares.forEach(middleware => {
-            sum.push( this.middlewares[middleware].handle );
-        });
-        return sum;
-    }
+
+
 }
