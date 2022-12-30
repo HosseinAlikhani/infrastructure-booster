@@ -2,7 +2,7 @@ import { ApplicationInterface } from "./Contracts/ApplicationInterface";
 import { ServiceProviderInterface } from "./Contracts/ServiceProviderInterface";
 import { AuthenticateMiddleware } from "../Middleware/AuthenticateMiddleware";
 
-export class ServiceProvider 
+export default class ServiceProvider 
     implements ServiceProviderInterface
 {
     private static instance: ServiceProviderInterface|null = null;
