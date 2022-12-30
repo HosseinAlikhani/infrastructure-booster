@@ -1,7 +1,7 @@
 import { GroupRoute } from "../Route/GroupRoute";
 import { Route } from "../Route/Route";
 import { RoutesInterface } from "../Route/RouteInterface";
-import { ServiceProvider } from "./ServiceProvider";
+import ServiceProvider from "./ServiceProvider";
 
 export default class RouteServiceProvider
     extends ServiceProvider
