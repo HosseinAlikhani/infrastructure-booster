@@ -1,6 +1,5 @@
 import { ApplicationInterface } from "./Contracts/ApplicationInterface";
 import { ServiceProviderInterface } from "./Contracts/ServiceProviderInterface";
-import { AuthenticateMiddleware } from "../Middleware/AuthenticateMiddleware";
 
 export default class ServiceProvider 
     implements ServiceProviderInterface
@@ -11,14 +10,11 @@ export default class ServiceProvider
 
     protected applicationSource;
 
-    middlewares: Object = {};
-
     private port: number = 3000;
 
     public constructor(application){
         this.applicationSource = application;
         this.application = application();
-        this.defaultMiddleware();
     }
 
     /**
@@ -56,24 +52,6 @@ export default class ServiceProvider
      */
     public getApplicationSource(){
         return this.applicationSource;
-    }
-    
-    /**
-     * register middleware to service provider
-     * @param contract 
-     * @param abstract 
-     */
-    public registerMiddleware(contract, abstract: Function)
-    {
-        this.middlewares[contract] = abstract;
-    }
-
-    /**
-     * set default middleware to service provider
-     */
-    public defaultMiddleware()
-    {
-        this.middlewares['authenticate'] = new AuthenticateMiddleware();
     }
 
     /**
