@@ -41,11 +41,6 @@ export default class ServiceProvider
         return this.instance;
     }
 
-    public static makeApplicationSource(){
-        let instance = this.make();
-        return instance.getApplicationSource();
-    }
-
     /**
      * get application source
      * @returns
