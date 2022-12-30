@@ -30,7 +30,7 @@ export default class RouteServiceProvider
         let Router = router ?? this.application;
         Router[route.getMethod()](
             route.getRoute(),
-            this.makeMiddleware(route.getMiddleware()),
+            route.getMiddleware(),
             route.getAction()
         );
     }
@@ -43,10 +43,6 @@ export default class RouteServiceProvider
         let Router = this.applicationSource.Router(),
             routes = groupRoute.getRoutes();
         
-        if ( groupRoute.getMiddleware().length ) {
-            Router.use( this.makeMiddleware(groupRoute.getMiddleware()) );
-        }
-
         routes.forEach((route: Route|GroupRoute) => {
             if (route instanceof GroupRoute ) {
                 route.concatPrefix(groupRoute);
@@ -57,19 +53,5 @@ export default class RouteServiceProvider
         });
 
         this.application.use(groupRoute.getPrefix(), Router );
-    }
-
-    /**
-     * serialize middleware to register
-     * @param middlewares 
-     * @returns 
-     */
-    private makeMiddleware(middlewares)
-    {
-        let sum: Array<Function> = [];
-        middlewares.forEach(middleware => {
-            sum.push( this.middlewares[middleware].handle );
-        });
-        return sum;
     }
 }
