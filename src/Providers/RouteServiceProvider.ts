@@ -6,6 +6,8 @@ import { ServiceProvider } from "./ServiceProvider";
 export default class RouteServiceProvider
     extends ServiceProvider
 {
+    private middlewares: Object = {};
+
     /**
      * register routes to application service provider
      * @param applicationRoutes 
