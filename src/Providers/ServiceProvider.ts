@@ -18,16 +18,7 @@ export class ServiceProvider
     public constructor(application){
         this.applicationSource = application;
         this.application = application();
-        this.initJsonParser();
         this.defaultMiddleware();
-    }
-
-    private initJsonParser(){
-        var body = require('body-parser');
-        this.application.use(body.json());
-        this.application.use(body.urlencoded({
-            extended: true
-        }));
     }
 
     /**
@@ -95,8 +86,4 @@ export class ServiceProvider
             console.log('provider run on port 3000 ...');
         });
     }
-    
-
-
-
 }
