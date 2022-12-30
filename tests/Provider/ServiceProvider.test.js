@@ -17,4 +17,11 @@ describe("test service provider", () => {
 
         expect( make ).toBeInstanceOf(ServiceProvider);
     });
+
+    it("test make static method with exception", () => {
+        ServiceProvider.instance = null;
+        expect( () => {
+            ServiceProvider.make();
+        }).toThrow(Error);
+    });
 });
