@@ -50,7 +50,7 @@ export default class ServiceProvider
     }
 
     /**
-     * run service provider
+     * run application
      * @param port 
      */
     public listen(port: null|number = null){
@@ -59,6 +59,7 @@ export default class ServiceProvider
             this.application.listen(port, () => {
                 console.log('application run on port 3000 ...!');
             });
+            return true;
         }catch(error: any) {
             throw new Error(error.message);
         }
