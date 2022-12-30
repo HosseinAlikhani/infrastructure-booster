@@ -29,4 +29,9 @@ describe("test service provider", () => {
         let serviceProvider = ServiceProvider.init(application);
         expect( serviceProvider.getApplicationSource() ).toEqual( application );
     });
+
+    it("test listen method", () => {
+        let serviceProvider = ServiceProvider.init(application);
+        expect( serviceProvider.listen() ).toBe(true);
+    });
 });
