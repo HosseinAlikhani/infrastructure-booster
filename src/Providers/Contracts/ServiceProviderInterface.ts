@@ -4,5 +4,5 @@ export interface ServiceProviderInterface
 {
     getApplicationSource();
     
-    listen();
+    listen(port: null|number);
 }
