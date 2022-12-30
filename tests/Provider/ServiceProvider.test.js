@@ -9,4 +9,12 @@ describe("test service provider", () => {
 
         expect( serviceProvider ).toBeInstanceOf(ServiceProvider);
     });
+
+    it("test make static method without exception", () => {
+        ServiceProvider.init(application);
+
+        let make = ServiceProvider.make();
+
+        expect( make ).toBeInstanceOf(ServiceProvider);
+    });
 });
