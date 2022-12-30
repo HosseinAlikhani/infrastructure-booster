@@ -24,4 +24,9 @@ describe("test service provider", () => {
             ServiceProvider.make();
         }).toThrow(Error);
     });
+
+    it("test getApplicationSource method", () => {
+        let serviceProvider = ServiceProvider.init(application);
+        expect( serviceProvider.getApplicationSource() ).toEqual( application );
+    });
 });
