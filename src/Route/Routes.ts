@@ -1,9 +1,33 @@
 import { GroupRoute } from "./GroupRoute";
 import { Route } from "./Route";
+import { MethodEnum } from "./RouteInterface";
 
 export default class Routes
 {
     private routes: Array<GroupRoute|Route> = [];
+
+    public constructor(){
+        this.RouteHttpVerb();
+    }
+
+    /**
+     * add route http verb method
+     */
+    private RouteHttpVerb()
+    {
+        ['get', 'post', 'patch', 'delete'].forEach( (httpVerb) => {
+            this[httpVerb] = (route, middleware = [], action) => {
+                this.route(
+                    new Route(
+                        MethodEnum[httpVerb],
+                        route,
+                        middleware,
+                        action
+                    )
+                );
+            };
+        });
+    }
 
     /**
      * register route to routes property
