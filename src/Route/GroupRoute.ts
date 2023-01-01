@@ -39,6 +39,15 @@ export class GroupRoute
     }
 
     /**
+     * return callback
+     * @returns Function
+     */
+    public getCallback(): Function
+    {
+        return this.callback();
+    }
+
+    /**
      * get routes
      * @returns
      */
