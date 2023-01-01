@@ -1,4 +1,5 @@
 import { Route } from "../../src/Route/Route";
+import { GroupRoute } from "../../src/Route/GroupRoute";
 import { MethodEnum } from "../../src/Route/RouteInterface";
 
 Array.prototype.random = function(){
@@ -34,11 +35,11 @@ export default class RouteFaker
                 routes.route(this.route());
             }
         };
-        return {
+        return new GroupRoute(
             prefix,
             middleware,
             callback
-        };
+        );
     }
 
     /**
