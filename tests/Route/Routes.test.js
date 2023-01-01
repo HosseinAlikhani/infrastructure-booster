@@ -34,4 +34,18 @@ describe('test Routes', () => {
         expect( routes.getRoutes().length ).toBe(6);
         expect( routes.getRoutes() ).toEqual( routeFakes );
     });
+
+    it('check get method', () => {
+        let routes = new Routes(),
+            fakeRoute = routeFaker.route();
+        routes.get( fakeRoute.getRoute(), fakeRoute.getMiddleware(), fakeRoute.getAction() );
+
+        expect(routes.getRoutes().length).toBe(1);
+
+        let route = routes.getRoutes()[0];
+
+        expect( route.getRoute() ).toBe( fakeRoute.getRoute() );
+        expect( route.getMiddleware() ).toBe( fakeRoute.getMiddleware() );
+        expect( route.getAction() ).toBe( fakeRoute.getAction() );
+    });
 });
