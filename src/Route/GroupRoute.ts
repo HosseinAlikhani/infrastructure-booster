@@ -44,7 +44,7 @@ export class GroupRoute
      */
     public getCallback(): Function
     {
-        return this.callback();
+        return this.callback;
     }
 
     /**
