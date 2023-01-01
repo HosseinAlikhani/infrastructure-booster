@@ -22,14 +22,14 @@ describe('test Routes', () => {
             routeFakes = [];
 
         let group1 = routeFaker.group();
-        routeFakes.push( routes.group(group1.prefix, group1.middleware, group1.callback) );
+        routeFakes.push( routes.group(group1.getPrefix(), group1.getMiddleware(), group1.getCallback()) );
 
         for(let i = 1; i <= 4; i++){
             routeFakes.push( routes.route(routeFaker.route()) );
         }
 
         let group3  = routeFaker.group();
-        routeFakes.push( routes.group(group3.prefix, group3.middleware, group3.callback) );
+        routeFakes.push( routes.group(group3.getPrefix(), group3.getMiddleware(), group3.getCallback()) );
 
         expect( routes.getRoutes().length ).toBe(6);
         expect( routes.getRoutes() ).toEqual( routeFakes );
