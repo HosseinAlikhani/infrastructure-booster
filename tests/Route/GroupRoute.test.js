@@ -14,4 +14,21 @@ describe("test GroupRoute class", () => {
             );
         expect( groupRoute ).toBeInstanceOf(GroupRoute);
     });
+
+    it("test getter methods", () => {
+        let routes = (route) => {
+                route.get('/users', [], () => {} );
+                route.post('/users', [], () => {} );
+                route.delete('/users', [], () => {} );
+            },
+            groupRoute = new GroupRoute(
+                '/test',
+                ['auth'],
+                routes
+            );
+
+            expect( groupRoute.getPrefix() ).toEqual('/test');
+            expect( groupRoute.getMiddleware() ).toEqual(['auth']);
+            expect( groupRoute.getCallback() ).toEqual( routes );
+    });
 });
