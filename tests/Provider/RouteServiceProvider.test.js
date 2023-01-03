@@ -14,6 +14,11 @@ describe("test RouteServiceProvider", () => {
                 routeFaker.route('post'),
                 routeFaker.route('delete'),
             ];
+
+        fakeRoute.forEach( (route) => {
+            routes.route(route);
+        });
+
     });
 
 });
