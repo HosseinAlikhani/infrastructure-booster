@@ -1,5 +1,8 @@
 let app = {
-    listen
+    listen,
+    get,
+    post,
+    patch
 };
 
 function Application(){
@@ -44,7 +47,6 @@ function patch(route, middleware, action){
         action
     });
 }
-
 
 
 exports = module.exports = Application;
