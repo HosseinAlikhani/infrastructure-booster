@@ -1,4 +1,7 @@
+let _routes = [];
+
 let app = {
+    _routes,
     listen,
     get,
     post,
@@ -15,14 +18,13 @@ function Router(){
 
 
 // inner methods and property
-var routes = [];
 
 function listen(port, callback){
     // run application mock
 }
 
 function get(route, middleware, action){
-    routes.push({
+    _routes.push({
         method: 'get',
         route,
         middleware,
@@ -31,7 +33,7 @@ function get(route, middleware, action){
 }
 
 function post(route, middleware, action){
-    routes.push({
+    _routes.push({
         method: 'post',
         route,
         middleware,
@@ -40,7 +42,7 @@ function post(route, middleware, action){
 }
 
 function patch(route, middleware, action){
-    routes.push({
+    _routes.push({
         method: 'patch',
         route,
         middleware,
