@@ -11,7 +11,7 @@ function Application(){
 }
 
 function Router(){
-    // application router mock
+    return routeMethods;
 }
 
 
