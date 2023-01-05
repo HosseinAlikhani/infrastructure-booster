@@ -3,6 +3,7 @@ let _routes = [];
 let app = {
     _routes,
     listen,
+    use
 };
 
 function Application(){
@@ -20,6 +21,9 @@ function listen(port, callback){
     // run application mock
 }
 
+function use(arg, action){
+    //
+}
 
 let routeMethods = {};
 
