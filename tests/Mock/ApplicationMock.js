@@ -14,10 +14,6 @@ function Router(){
     return routeMethods;
 }
 
-function groupRouter(prefix, action){
-
-}
-
 // inner methods and property
 
 function listen(port, callback){
