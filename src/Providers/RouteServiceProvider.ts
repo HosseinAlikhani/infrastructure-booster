@@ -10,9 +10,11 @@ export default class RouteServiceProvider
 
     /**
      * register routes to application service provider
-     * @param applicationRoutes 
+     * @param applicationRoutes
+     * @return boolean
      */
-     public registerRoutes(applicationRoutes: RoutesInterface){
+     public registerRoutes(applicationRoutes: RoutesInterface): boolean
+     {
         let routes = applicationRoutes.getRoutes();
         routes.forEach((route) => {
             if ( route instanceof Route ) {
@@ -21,6 +23,7 @@ export default class RouteServiceProvider
                 this.registerGroup(route);
             }
         });
+        return true;
     }
 
     /**
