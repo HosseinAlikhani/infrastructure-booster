@@ -13,9 +13,10 @@ describe("test RouteServiceProvider", () => {
             fakeRoute = [
                 routeFaker.route('get'),
                 routeFaker.route('post'),
-                // routeFaker.group(),
+                routeFaker.group(),
                 routeFaker.route('post'),
                 routeFaker.route('post'),
+                routeFaker.route('delete'),
             ];
 
         fakeRoute.forEach( (route) => {
@@ -23,8 +24,7 @@ describe("test RouteServiceProvider", () => {
         });
 
         let routeServiceProvider = new RouteServiceProvider(application);
-        routeServiceProvider.registerRoutes(routes);
-
+        expect( routeServiceProvider.registerRoutes(routes)).toBe(true);
     });
 
 });
