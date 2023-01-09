@@ -50,7 +50,6 @@ export default class RouteServiceProvider
         
         routes.forEach((route: Route|GroupRoute) => {
             if (route instanceof GroupRoute ) {
-                route.concatPrefix(groupRoute);
                 this.registerGroup(route);
             }else{
                 this.registerRoute(route, Router);
