@@ -1,17 +1,15 @@
 {
-    "compilerOptions": {
-      "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-      "module": "commonjs",                                /* Specify what module code is generated. */
-      "rootDirs": [
-        "/src",
-      ],                                                   /* Allow multiple folders to be treated as one when resolving modules. */
-      "outDir": "./dist",                      /* Specify an output folder for all emitted files. */
-      "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-      "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-      "strict": true,                                      /* Enable all strict type-checking options. */
-      "noImplicitAny": false,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
-      "strictPropertyInitialization": false,             /* Check for class properties that are declared but not set in the constructor. */
-      "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-    }
-  }
-  
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "module": "commonjs",
+    "sourceMap": true,
+    "declaration": true,
+    "target": "es5",
+    "outDir": "dist"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
