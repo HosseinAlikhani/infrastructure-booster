@@ -12,11 +12,25 @@ export default class RouteServiceProvider
 
     private provider: ServiceProviderInterface;
 
+    private static instance: RouteServiceProviderInterface;
+
     /**
      * route service provider constructor
      */
     public constructor(){
         this.provider = ServiceProvider.make();
+    }
+
+    /**
+     * make routeServiceProvider instance
+     * @returns RouteServiceProviderInterface
+     */
+    public static make(): RouteServiceProviderInterface
+    {
+        if(! this.instance ) {
+            this.instance = new RouteServiceProvider();
+        }
+        return this.instance;
     }
 
     /**
