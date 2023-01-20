@@ -85,11 +85,11 @@ export default class RouteServiceProvider
     }
 
     /**
-     * get router func from application router
+     * get application source from provider instance
      * @returns 
      */
-    private getApplicationRouter()
+    private getApplicationSource()
     {
-        return this.applicationSource.Router();
+        return this.provider.getApplicationSource();
     }
 }
