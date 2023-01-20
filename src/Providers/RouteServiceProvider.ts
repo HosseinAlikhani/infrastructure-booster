@@ -47,7 +47,7 @@ export default class RouteServiceProvider
      * @param groupRoute 
      */
     private registerGroup(groupRoute: GroupRoute){
-        let Router = this.applicationSource.Router(),
+        let Router = this.getApplicationRouter(),
             routes = groupRoute.getRoutes();
         
         routes.forEach((route: Route|GroupRoute) => {
@@ -59,5 +59,14 @@ export default class RouteServiceProvider
         });
 
         this.application.use(groupRoute.getPrefix(), Router );
+    }
+
+    /**
+     * get router func from application router
+     * @returns 
+     */
+    private getApplicationRouter()
+    {
+        return this.applicationSource.Router();
     }
 }
