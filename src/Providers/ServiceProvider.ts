@@ -20,9 +20,10 @@ export default class ServiceProvider
     /**
      * initialie service provider
      * @param application 
-     * @returns 
+     * @returns ServiceProviderInterface
      */
-    public static init(application: ApplicationInterface){
+    public static init(application: ApplicationInterface): ServiceProviderInterface
+    {
         if (! this.instance ) {
             let instance = new this(application);
             this.instance = instance;
