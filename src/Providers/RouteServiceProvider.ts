@@ -70,7 +70,7 @@ export default class RouteServiceProvider
      * @param groupRoute 
      */
     private registerGroup(groupRoute: GroupRoute){
-        let Router = this.getApplicationRouter(),
+        let Router = this.getApplicationSource().Router(),
             routes = groupRoute.getRoutes();
         
         routes.forEach((route: Route|GroupRoute) => {
