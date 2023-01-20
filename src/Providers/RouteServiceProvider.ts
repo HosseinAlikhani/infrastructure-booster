@@ -58,7 +58,7 @@ export default class RouteServiceProvider
      * @param router 
      */
     private registerRoute(route: Route, router = null){
-        let Router = router ?? this.application;
+        let Router = router ?? this.getApplication();
         Router[route.getMethod()](
             route.getRoute(),
             route.getMiddleware(),
@@ -82,7 +82,7 @@ export default class RouteServiceProvider
             }
         });
 
-        this.application.use(groupRoute.getPrefix(), Router );
+        this.getApplication().use(groupRoute.getPrefix(), Router );
     }
 
     /**
