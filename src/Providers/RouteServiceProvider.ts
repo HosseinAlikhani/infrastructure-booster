@@ -2,10 +2,8 @@ import { GroupRoute } from "../Route/GroupRoute";
 import { Route } from "../Route/Route";
 import { RoutesInterface } from "../Route/RouteInterface";
 import { RouteServiceProviderInterface } from "./Contracts/RouteServiceProviderInterface";
-import ServiceProvider from "./ServiceProvider";
 
 export default class RouteServiceProvider
-    extends ServiceProvider
     implements RouteServiceProviderInterface
 {
     private middlewares: Object = {};
