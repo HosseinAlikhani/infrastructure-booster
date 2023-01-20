@@ -1,6 +1,7 @@
 import { GroupRoute } from "../Route/GroupRoute";
 import { Route } from "../Route/Route";
 import { RoutesInterface } from "../Route/RouteInterface";
+import { ApplicationInterface } from "./Contracts/ApplicationInterface";
 import { RouteServiceProviderInterface } from "./Contracts/RouteServiceProviderInterface";
 import { ServiceProviderInterface } from "./Contracts/ServiceProviderInterface";
 import ServiceProvider from "./ServiceProvider";
@@ -91,5 +92,14 @@ export default class RouteServiceProvider
     private getApplicationSource()
     {
         return this.provider.getApplicationSource();
+    }
+
+    /**
+     * return application instace
+     * @returns ApplicationInterface
+     */
+    private getApplication(): ApplicationInterface
+    {
+        return this.provider.getApplication();
     }
 }
