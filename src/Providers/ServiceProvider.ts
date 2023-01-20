@@ -51,6 +51,15 @@ export default class ServiceProvider
     }
 
     /**
+     * return application instance
+     * @returns ApplicationInterface
+     */
+    public getApplication(): ApplicationInterface
+    {
+        return this.application;
+    }
+
+    /**
      * run application
      * @param port 
      */
