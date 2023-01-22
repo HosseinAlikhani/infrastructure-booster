@@ -23,7 +23,7 @@ describe("test RouteServiceProvider", () => {
             routes.route(route);
         });
 
-        let routeServiceProvider = new RouteServiceProvider(application);
+        let routeServiceProvider = RouteServiceProvider.make();
         expect( routeServiceProvider.registerRoutes(routes)).toBe(true);
     });
 
