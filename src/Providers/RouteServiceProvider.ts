@@ -34,6 +34,10 @@ export default class RouteServiceProvider
         return this.instance;
     }
 
+    public registerMiddleware(name, middleware) {
+
+    }
+
     /**
      * register routes to application service provider
      * @param applicationRoutes
