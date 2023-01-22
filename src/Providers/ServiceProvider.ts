@@ -4,13 +4,11 @@ import { ServiceProviderInterface } from "./Contracts/ServiceProviderInterface";
 export default class ServiceProvider 
     implements ServiceProviderInterface
 {
-    private static instance: ServiceProviderInterface|null = null;
+    private static instance: ServiceProviderInterface;
 
     protected application: ApplicationInterface;
 
     protected applicationSource;
-
-    private port: number = 3000;
 
     public constructor(application){
         this.applicationSource = application;
@@ -63,8 +61,7 @@ export default class ServiceProvider
      * run application
      * @param port 
      */
-    public listen(port: null|number = null){
-        port = port ?? this.port;
+    public listen(port:number){
         try {
             this.application.listen(port, () => {
                 console.log('application run on port 3000 ...!');
