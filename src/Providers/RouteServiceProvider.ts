@@ -34,8 +34,16 @@ export default class RouteServiceProvider
         return this.instance;
     }
 
-    public registerMiddleware(name, middleware) {
-
+    /**
+     * register middleware to route service provider
+     * @param name
+     * @param middleware 
+     */
+    public registerMiddlewares(name: string, middleware: Function): void
+    {
+        if (! this.middlewares[name] ) {
+            this.middlewares[name] = middleware;
+        }
     }
 
     /**
