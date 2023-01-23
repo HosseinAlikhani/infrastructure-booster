@@ -1,3 +1,4 @@
+import MiddlewareInterface from "../Middleware/MiddlewareInterface";
 import { GroupRoute } from "../Route/GroupRoute";
 import { Route } from "../Route/Route";
 import { RoutesInterface } from "../Route/RouteInterface";
@@ -44,6 +45,19 @@ export default class RouteServiceProvider
         if (! this.middlewares[name] ) {
             this.middlewares[name] = middleware;
         }
+    }
+
+    /**
+     * return middleware
+     * @param name 
+     * @return MiddlewareInterface
+     */
+    public makeMiddleware(name: string): MiddlewareInterface|null
+    {
+        if (! this.middlewares[name] ){
+            return null;
+        }
+        return this.middlewares[name];
     }
 
     /**
