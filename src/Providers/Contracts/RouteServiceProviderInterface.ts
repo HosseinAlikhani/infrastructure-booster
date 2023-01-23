@@ -17,5 +17,5 @@ export interface RouteServiceProviderInterface
     * @param name 
     * @return MiddlewareInterface
     */
-    makeMiddleware(name: string): MiddlewareInterface|null;
+    makeMiddleware(name: string): MiddlewareInterface;
 }
