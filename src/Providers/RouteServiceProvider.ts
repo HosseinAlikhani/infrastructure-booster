@@ -39,7 +39,7 @@ export default class RouteServiceProvider
      * @param name
      * @param middleware 
      */
-    public registerMiddlewares(name: string, middleware: Function): void
+    public registerMiddlewares(name: string, middleware): void
     {
         if (! this.middlewares[name] ) {
             this.middlewares[name] = middleware;
