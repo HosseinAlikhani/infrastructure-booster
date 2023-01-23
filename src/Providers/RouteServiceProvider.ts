@@ -52,10 +52,10 @@ export default class RouteServiceProvider
      * @param name 
      * @return MiddlewareInterface
      */
-    public makeMiddleware(name: string): MiddlewareInterface|null
+    public makeMiddleware(name: string): MiddlewareInterface
     {
         if (! this.middlewares[name] ){
-            return null;
+            throw new Error(`can't not make middleware ${name}`);
         }
         return this.middlewares[name];
     }
