@@ -1,3 +1,4 @@
+import MiddlewareInterface from "../../Middleware/MiddlewareInterface";
 import { RoutesInterface } from "../../Route/RouteInterface";
 
 export interface RouteServiceProviderInterface
@@ -9,5 +10,12 @@ export interface RouteServiceProviderInterface
     * @param name
     * @param middleware 
     */
-    registerMiddlewares(name: string, middleware: Function): void;
+    registerMiddlewares(name: string, middleware): void;
+
+    /**
+    * return middleware
+    * @param name 
+    * @return MiddlewareInterface
+    */
+    makeMiddleware(name: string): MiddlewareInterface|null;
 }
