@@ -5,13 +5,13 @@ export interface RoutesInterface
 
 export type RouteType = {
     method: MethodEnum;
-    route: String;
+    route: string;
     middleware: Array<Object>;
     action;
 }
 
 export type GroupType = {
-    route: String,
+    route: string,
     middleware: Array<Object>,
     callback: Object;
 }
