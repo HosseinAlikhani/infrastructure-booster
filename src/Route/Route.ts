@@ -3,14 +3,14 @@ import { MethodEnum } from "./RouteInterface";
 export class Route
 {
     private method: MethodEnum;
-    private route: String;
-    private middleware: Array<String|null>;
+    private route: string;
+    private middleware: Array<string|null>;
     private action: Function;
 
     public constructor(
         method: MethodEnum,
-        route: String,
-        middleware: Array<String|null>,
+        route: string,
+        middleware: Array<string|null>,
         action: Function
     ){
         this.method = method;
@@ -32,7 +32,7 @@ export class Route
      * get route
      * @returns 
      */
-    public getRoute(): String
+    public getRoute(): string
     {
         return this.route;
     }
@@ -41,7 +41,7 @@ export class Route
      * get middleware
      * @returns 
      */
-    public getMiddleware(): Array<String|null>
+    public getMiddleware(): Array<string|null>
     {
         return this.middleware;
     }
