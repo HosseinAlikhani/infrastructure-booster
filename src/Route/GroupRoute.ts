@@ -2,14 +2,14 @@ import Routes from "./Routes";
 
 export class GroupRoute
 {
-    private prefix: String;
-    private middleware: Array<String|null>;
+    private prefix: string;
+    private middleware: Array<string|null>;
     private callback: Function;
     private routes: Routes;
 
     public constructor(
-        prefix: String,
-        middleware: Array<String|null>,
+        prefix: string,
+        middleware: Array<string|null>,
         callback: Function
     ){
         this.prefix = prefix;
@@ -24,7 +24,7 @@ export class GroupRoute
      * get prefix
      * @returns 
      */
-    getPrefix(): String
+    getPrefix(): string
     {
         return this.prefix;
     }
@@ -33,7 +33,7 @@ export class GroupRoute
      * get middlewares
      * @returns 
      */
-    getMiddleware(): Array<String|null>
+    getMiddleware(): Array<string|null>
     {
         return this.middleware;
     }
