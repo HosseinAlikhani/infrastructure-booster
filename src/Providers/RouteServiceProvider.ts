@@ -52,10 +52,10 @@ export default class RouteServiceProvider
      * @param name 
      * @return
      */
-    public makeMiddleware(name: string)
+    public makeMiddleware(name: string): MiddlewareInterface
     {
         if (! this.middlewares[name] ){
-            throw new Error(`can't not make middleware ${name}`);
+            throw new Error(`can't make middleware ${name}`);
         }
         return this.middlewares[name];
     }
@@ -99,7 +99,13 @@ export default class RouteServiceProvider
     private registerGroup(groupRoute: GroupRoute){
         let Router = this.getApplicationSource().Router(),
             routes = groupRoute.getRoutes();
-        
+
+        if ( groupRoute.getMiddleware().length ) {
+            groupRoute.getMiddleware().forEach( (middleware) => {
+                Router.use(this.makeMiddleware(middleware).handle);
+            });
+        }
+
         routes.forEach((route: Route|GroupRoute) => {
             if (route instanceof GroupRoute ) {
                 this.registerGroup(route);
