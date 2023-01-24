@@ -54,7 +54,7 @@ export default class Routes
      * @param middleware 
      * @param callback 
      */
-    public group(prefix: String, middleware: any, callback: Function): GroupRoute
+    public group(prefix: string, middleware: any, callback: Function): GroupRoute
     {
         let groupRoute = new GroupRoute(prefix, middleware, callback);
         this.route( groupRoute );
