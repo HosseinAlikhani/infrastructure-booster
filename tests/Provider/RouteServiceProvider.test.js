@@ -49,21 +49,29 @@ describe("test RouteServiceProvider", () => {
 
     it("test registerRoutes method", () => {
         ServiceProvider.init(application);
-        let routes = new Routes(),
+        let routeServiceProvider = RouteServiceProvider.make(),
+            routes = new Routes(),
             fakeRoute = [
                 routeFaker.route('get'),
                 routeFaker.route('post'),
-                routeFaker.group(),
+                routeFaker.group(null, ['test1', 'test2']),
                 routeFaker.route('post'),
                 routeFaker.route('post'),
                 routeFaker.route('delete'),
             ];
 
+        routeServiceProvider.registerMiddlewares('test1', () => {
+            //
+        });
+
+        routeServiceProvider.registerMiddlewares('test2', () => {
+            //
+        });
+
         fakeRoute.forEach( (route) => {
             routes.route(route);
         });
 
-        let routeServiceProvider = RouteServiceProvider.make();
         expect( routeServiceProvider.registerRoutes(routes)).toBe(true);
     });
 
