@@ -40,11 +40,13 @@ export default class RouteServiceProvider
      * @param name
      * @param middleware 
      */
-    public registerMiddlewares(name: string, middleware): void
+    public registerMiddlewares(name: string, middleware): boolean
     {
         if (! this.middlewares[name] ) {
             this.middlewares[name] = middleware;
+            return true;
         }
+        return false;
     }
 
     /**
@@ -113,11 +115,10 @@ export default class RouteServiceProvider
         let Router = this.getApplicationSource().Router(),
             routes = groupRoute.getRoutes();
 
-        if ( groupRoute.getMiddleware().length ) {
-            groupRoute.getMiddleware().forEach( (middleware) => {
-                Router.use(this.makeMiddleware(middleware).handle);
-            });
-        }
+
+        Router.use(
+            this.bindMiddlewares(groupRoute.getMiddleware())
+        );
 
         routes.forEach((route: Route|GroupRoute) => {
             if (route instanceof GroupRoute ) {
