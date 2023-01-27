@@ -52,9 +52,8 @@ export default class RouteServiceProvider
     /**
      * return middleware
      * @param name 
-     * @return
      */
-     public makeMiddleware(name: string): MiddlewareInterface
+     public makeMiddleware(name: string)
      {
         if (! this.middlewares[name] ){
             throw new Error(`can't make middleware ${name}`);
