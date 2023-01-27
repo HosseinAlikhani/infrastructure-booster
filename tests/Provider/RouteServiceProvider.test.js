@@ -6,9 +6,9 @@ const application = require('./../Mock/ApplicationMock');
 
 const routeFaker = new RouteFaker();
 describe("test RouteServiceProvider", () => {
-    ServiceProvider.init(application);
 
     it("test registerRoutes method", () => {
+        ServiceProvider.init(application);
         let routes = new Routes(),
             fakeRoute = [
                 routeFaker.route('get'),
