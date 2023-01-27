@@ -1,4 +1,3 @@
-import MiddlewareInterface from "../../Middleware/MiddlewareInterface";
 import { RoutesInterface } from "../../Route/RouteInterface";
 
 export interface RouteServiceProviderInterface
