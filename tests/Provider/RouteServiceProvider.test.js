@@ -10,6 +10,11 @@ describe("test RouteServiceProvider", () => {
         expect( () => { RouteServiceProvider.make() }).toThrow(Error);
     });
 
+    it("test make method without exception", () => {
+        ServiceProvider.init(application);
+        expect(RouteServiceProvider.make()).toBeInstanceOf(RouteServiceProvider);
+    });
+
     it("test registerRoutes method", () => {
         ServiceProvider.init(application);
         let routes = new Routes(),
