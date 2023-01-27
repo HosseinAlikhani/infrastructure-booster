@@ -58,6 +58,7 @@ describe("test RouteServiceProvider", () => {
                 routeFaker.route('post'),
                 routeFaker.route('post'),
                 routeFaker.route('delete'),
+                routeFaker.group(null, []),
             ];
 
         routeServiceProvider.registerMiddlewares('test1', () => {
