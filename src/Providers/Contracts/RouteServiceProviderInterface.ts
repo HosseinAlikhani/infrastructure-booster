@@ -14,7 +14,7 @@ export interface RouteServiceProviderInterface
     * @param name
     * @param middleware 
     */
-    registerMiddlewares(name: string, middleware): void;
+    registerMiddlewares(name: string, middleware): boolean;
 
     /**
     * return middleware
