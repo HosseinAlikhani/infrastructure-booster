@@ -15,6 +15,25 @@ describe("test RouteServiceProvider", () => {
         expect(RouteServiceProvider.make()).toBeInstanceOf(RouteServiceProvider);
     });
 
+    it("test registerMiddlewares", () => {
+        ServiceProvider.init(application);
+        let routeServiceProvider = RouteServiceProvider.make(),
+            middlewares = {
+                'testRegisterMiddleware1': () => {
+
+                },
+                'testRegisterMiddleware2': () => {
+
+                }
+            };
+        for(let middleware in middlewares){
+            routeServiceProvider.registerMiddlewares(middleware, middlewares[middleware]);
+        }
+
+        expect( routeServiceProvider.makeMiddleware('testRegisterMiddleware1')).toBeInstanceOf(Function);
+        expect( routeServiceProvider.makeMiddleware('testRegisterMiddleware2')).toBeInstanceOf(Function);
+    });
+
     it("test makeMiddleware that not register before", () => {
         ServiceProvider.init(application);
         let routeServiceProvider = RouteServiceProvider.make();
