@@ -21,6 +21,13 @@ describe("test RouteServiceProvider", () => {
         expect( () => { routeServiceProvider.makeMiddleware('authenticate') } ).toThrow(Error);
     });
 
+    it("test makeMiddlware that register before", () => {
+        ServiceProvider.init(application);
+        let routeServiceProvider = RouteServiceProvider.make();
+        routeServiceProvider.registerMiddlewares('corserror', () => {});
+        expect( routeServiceProvider.makeMiddleware('corserror')).toBeInstanceOf(Function);
+    });
+
     it("test registerRoutes method", () => {
         ServiceProvider.init(application);
         let routes = new Routes(),
