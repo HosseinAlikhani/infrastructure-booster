@@ -27,6 +27,13 @@ export default class RouteFaker
         );
     }
 
+    /**
+     * generate random group instance
+     * @param {*} prefix 
+     * @param {*} middleware 
+     * @param {*} callback 
+     * @returns 
+     */
     group(prefix = null, middleware = [], callback = null)
     {
         prefix = prefix ?? this.url();
