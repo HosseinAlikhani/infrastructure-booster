@@ -116,9 +116,11 @@ export default class RouteServiceProvider
             routes = groupRoute.getRoutes();
 
 
-        Router.use(
-            this.bindMiddlewares(groupRoute.getMiddleware())
-        );
+        if ( groupRoute.getMiddleware().length ) {
+            Router.use(
+                this.bindMiddlewares(groupRoute.getMiddleware())
+            );
+        }
 
         routes.forEach((route: Route|GroupRoute) => {
             if (route instanceof GroupRoute ) {
