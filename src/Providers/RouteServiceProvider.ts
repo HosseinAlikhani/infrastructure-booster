@@ -61,6 +61,19 @@ export default class RouteServiceProvider
     }
 
     /**
+     * return array of middleware function
+     * @param names
+     */
+    private bindMiddlewares(names: Array<string>)
+    {
+        let middlewares = [];
+        names.forEach( (name) => {
+            middlewares.push(this.makeMiddleware(name).handle);
+        });
+        return middlewares;
+    }
+
+    /**
      * register routes to application service provider
      * @param applicationRoutes
      * @return boolean
