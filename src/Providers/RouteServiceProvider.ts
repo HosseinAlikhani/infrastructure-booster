@@ -54,8 +54,8 @@ export default class RouteServiceProvider
      * @param name 
      * @return
      */
-    public makeMiddleware(name: string): MiddlewareInterface
-    {
+     public makeMiddleware(name: string): MiddlewareInterface
+     {
         if (! this.middlewares[name] ){
             throw new Error(`can't make middleware ${name}`);
         }
@@ -70,7 +70,11 @@ export default class RouteServiceProvider
     {
         let middlewares = [];
         names.forEach( (name) => {
-            middlewares.push(this.makeMiddleware(name).handle);
+            let middleware = this.makeMiddleware(name);
+            if ( middleware instanceof Function != true ) {
+                middleware = new middleware().handle;
+            }
+            middlewares.push( middleware );
         });
         return middlewares;
     }
