@@ -15,6 +15,12 @@ describe("test RouteServiceProvider", () => {
         expect(RouteServiceProvider.make()).toBeInstanceOf(RouteServiceProvider);
     });
 
+    it("test makeMiddleware that not register before", () => {
+        ServiceProvider.init(application);
+        let routeServiceProvider = RouteServiceProvider.make();
+        expect( () => { routeServiceProvider.makeMiddleware('authenticate') } ).toThrow(Error);
+    });
+
     it("test registerRoutes method", () => {
         ServiceProvider.init(application);
         let routes = new Routes(),
