@@ -11,7 +11,7 @@ function Application(){
 }
 
 function Router(){
-    return routeMethods;
+    return {use, ...routeMethods};
 }
 
 // inner methods and property
