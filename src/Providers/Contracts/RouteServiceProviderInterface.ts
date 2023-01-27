@@ -3,6 +3,11 @@ import { RoutesInterface } from "../../Route/RouteInterface";
 
 export interface RouteServiceProviderInterface
 {
+    /**
+    * register routes to application service provider
+    * @param applicationRoutes
+    * @return boolean
+    */
     registerRoutes(applicationRoutes: RoutesInterface): boolean;
     
     /**
