@@ -70,9 +70,8 @@ export default class RouteServiceProvider
         let middlewares = [];
         names.forEach( (name) => {
             let middleware = this.makeMiddleware(name);
-            if ( middleware instanceof Function != true ) {
-                middleware = new middleware().handle;
-            }
+            //TODO if function set
+            middleware = (new middleware()).handle;
             middlewares.push( middleware );
         });
         return middlewares;
