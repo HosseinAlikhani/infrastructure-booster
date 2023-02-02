@@ -14,6 +14,20 @@ export default class Request implements MiddlewareInterface
     public initialize(request)
     {
         this.request = request;
+        this.getContent();
+        
+        return this.request;
+    }
+
+    /**
+     * get request body
+     * @return void
+     */
+    private getContent(): void
+    {
+        this.request.getContent = () => {
+            return this.request.body;
+        };
     }
 
     /**
@@ -23,6 +37,6 @@ export default class Request implements MiddlewareInterface
      * @param next 
      */
     public handle(request: any, response: any, next: any) {
-        this.initialize(request);        
+        request = this.initialize(request);        
     }
 }
