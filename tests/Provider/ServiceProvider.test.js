@@ -1,7 +1,8 @@
 const application = require('./../Mock/ApplicationMock');
-
+import ServiceProviderFaker from "./../Faker/ServiceProviderFaker";
 import ServiceProvider from "./../../src/Providers/ServiceProvider";
 
+let serviceProviderFaker = new ServiceProviderFaker();
 describe("test service provider", () => {
 
     it("test init static method", () => {
@@ -28,6 +29,13 @@ describe("test service provider", () => {
     it("test getApplicationSource method", () => {
         let serviceProvider = ServiceProvider.init(application);
         expect( serviceProvider.getApplicationSource() ).toEqual( application );
+    });
+
+    it("test registerService method", () => {
+        let serviceProvider = ServiceProvider.init(application);
+        expect( serviceProvider.registerService(
+            serviceProviderFaker.service()
+        )).toBe(true);
     });
 
     it("test listen method", () => {
