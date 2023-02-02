@@ -1,3 +1,4 @@
+import Request from "../Request/Request";
 import { ApplicationInterface } from "./Contracts/ApplicationInterface";
 import { ServiceProviderInterface } from "./Contracts/ServiceProviderInterface";
 
@@ -55,6 +56,17 @@ export default class ServiceProvider
     public getApplication(): ApplicationInterface
     {
         return this.application;
+    }
+
+    /**
+     * register default service
+     * @return void
+     */
+    private registerDefaultService():void
+    {
+        [ Request ].forEach( (service) => {
+            this.registerService(service);
+        })
     }
 
     /**
