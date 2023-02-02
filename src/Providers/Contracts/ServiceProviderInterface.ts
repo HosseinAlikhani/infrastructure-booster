@@ -18,7 +18,7 @@ export interface ServiceProviderInterface
      * register service on serviceProvider
      * @param service
      */
-    registerService(service): void;
+    registerService(service): boolean|Error;
     
     /**
      * run application on specific port
