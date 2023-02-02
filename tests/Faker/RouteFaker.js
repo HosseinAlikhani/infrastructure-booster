@@ -50,6 +50,17 @@ export default class RouteFaker
     }
 
     /**
+     * fake middleware
+     */
+    middleware() {
+        return class {
+            handle(){
+                //
+            }
+        }
+    }
+
+    /**
      * generate random http verb
      */
     method(){
