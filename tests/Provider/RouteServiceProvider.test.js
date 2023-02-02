@@ -61,13 +61,10 @@ describe("test RouteServiceProvider", () => {
                 routeFaker.group(null, []),
             ];
 
-        routeServiceProvider.registerMiddlewares('test1', () => {
-            //
-        });
+        routeServiceProvider.registerMiddlewares('test1', routeFaker.middleware());
 
-        routeServiceProvider.registerMiddlewares('test2', () => {
-            //
-        });
+        routeServiceProvider.registerMiddlewares('test2', routeFaker.middleware());
+
 
         fakeRoute.forEach( (route) => {
             routes.route(route);
