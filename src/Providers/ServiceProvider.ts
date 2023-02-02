@@ -58,6 +58,21 @@ export default class ServiceProvider
     }
 
     /**
+     * register service on serviceProvider
+     * @param service
+     */
+    public registerService(service: any): boolean|Error
+    {
+        try {
+            let init = new service();
+            this.application.use(init.initialize);
+            return true;
+        }catch(error){
+            throw Error(error);
+        }
+    }
+
+    /**
      * run application
      * @param port 
      */
