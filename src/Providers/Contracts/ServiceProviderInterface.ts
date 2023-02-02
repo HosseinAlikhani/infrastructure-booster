@@ -15,6 +15,12 @@ export interface ServiceProviderInterface
     getApplication(): ApplicationInterface
     
     /**
+     * register service on serviceProvider
+     * @param service
+     */
+    registerService(service): void;
+    
+    /**
      * run application on specific port
      * @param port 
      */
