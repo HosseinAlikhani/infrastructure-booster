@@ -14,5 +14,9 @@ export interface ServiceProviderInterface
      */
     getApplication(): ApplicationInterface
     
+    /**
+     * run application on specific port
+     * @param port 
+     */
     listen(port: null|number);
 }
