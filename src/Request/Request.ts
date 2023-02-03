@@ -1,6 +1,6 @@
-import MiddlewareInterface from "../Middleware/MiddlewareInterface";
+import ServiceInterface from "../Providers/Contracts/ServiceInterface";
 
-export default class Request implements MiddlewareInterface
+export default class Request implements ServiceInterface
 {
     /**
      * store request
@@ -11,7 +11,7 @@ export default class Request implements MiddlewareInterface
      * initialize request middleware
      * @param request 
      */
-    public initialize(request)
+    public execute(request)
     {
         this.request = request;
         this.getContent();
@@ -31,12 +31,13 @@ export default class Request implements MiddlewareInterface
     }
 
     /**
-     * middleware handle method
+     * initialize service class
      * @param request 
      * @param response 
      * @param next 
      */
-    public handle(request: any, response: any, next: any) {
-        request = this.initialize(request);        
+    public initialize(request: any, response: any, next: any) {
+        request = this.execute(request);
+        next();
     }
 }
