@@ -78,7 +78,7 @@ export default class ServiceProvider
     {
         try {
             let init = new service();
-            this.application.use(init.initialize);
+            this.application.use((req, res, next) => init.initialize(req, res, next));
             return true;
         }catch(error){
             throw Error(error);
