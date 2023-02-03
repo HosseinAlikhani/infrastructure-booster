@@ -14,6 +14,7 @@ export default class ServiceProvider
     public constructor(application){
         this.applicationSource = application;
         this.application = application();
+        this.registerDefaultService(); // register default service on application
     }
 
     /**
