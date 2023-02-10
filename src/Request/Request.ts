@@ -27,7 +27,7 @@ export default class Request implements ServiceInterface
     private getContent(): void
     {
         this.request.getContent = () => {
-            return this.request.body;
+            return this.request.body ?? {};
         };
     }
 
@@ -38,7 +38,7 @@ export default class Request implements ServiceInterface
     private getParams(): void
     {
         this.request.getParams = () => {
-            return this.request.params;
+            return this.request.params ?? {};
         }
     }
 
