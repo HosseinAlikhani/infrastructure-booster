@@ -15,6 +15,7 @@ export default class Request implements ServiceInterface
     {
         this.request = request;
         this.getContent();
+        this.getParams();
         
         return this.request;
     }
