@@ -37,7 +37,7 @@ export default class Request implements ServiceInterface
      */
     private getParams(): void
     {
-        this.request.getParam = () => {
+        this.request.getParams = () => {
             return this.request.params;
         }
     }
