@@ -50,6 +50,6 @@ export default class Request implements ServiceInterface
      */
     public initialize(request: any, response: any, next: any) {
         request = this.execute(request);
-        next();
+        return next();
     }
 }
