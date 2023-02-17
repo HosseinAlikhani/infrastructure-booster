@@ -10,5 +10,5 @@
   * get request params
   * @return void
   */
-  private getParams(): void
+  getParams(): void
 }
