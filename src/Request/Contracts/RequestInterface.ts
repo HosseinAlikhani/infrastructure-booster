@@ -1,12 +1,14 @@
  export interface RequestInterface
  {
-   /**
-   * return body of request
-   */
-   getContent();
+  /**
+  * return body of request
+  */
+  getContent();
 
-   /**
-    * return params of request
-   */
-   getParams();
- }
+  /**
+  * get request params
+  * @param key
+  * @return void
+  */
+  private getParams(key): void
+}
