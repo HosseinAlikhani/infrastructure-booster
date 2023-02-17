@@ -8,8 +8,7 @@
 
   /**
   * get request params
-  * @param key
   * @return void
   */
-  private getParams(key): void
+  private getParams(): void
 }

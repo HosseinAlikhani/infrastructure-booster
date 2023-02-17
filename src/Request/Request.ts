@@ -33,12 +33,11 @@ export default class Request implements ServiceInterface
 
     /**
      * get request params
-     * @param key
      * @return void
      */
-    private getParams(key): void
+    private getParams(): void
     {
-        this.request.getParams = () => {
+        this.request.getParams = (key: string|null) => {
             let params = this.request.params;
             if ( key ) {
                 return params && params[key]? params[key] : null;
