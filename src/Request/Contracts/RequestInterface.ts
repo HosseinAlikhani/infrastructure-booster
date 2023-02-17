@@ -8,7 +8,8 @@
 
   /**
   * get request params
+  * @param key string|null
   * @return void
   */
-  getParams(): void
+  getParams(key: string|null): void
 }
