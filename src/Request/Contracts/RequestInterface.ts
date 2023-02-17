@@ -1,7 +1,8 @@
  export interface RequestInterface
  {
   /**
-  * return body of request
+  * get request body
+  * @return void
   */
   getContent();
 
